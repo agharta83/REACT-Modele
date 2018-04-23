@@ -5,6 +5,7 @@
   "author": "Philippe Candille <philippe@oclock.io>",
   "license": "MIT",
   "devDependencies": {
+    "auto-reload-brunch": "^2.7.1",
     "brunch": "^2.10.12"
   },
   "scripts": {
