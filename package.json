@@ -6,7 +6,17 @@
   "license": "MIT",
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
-    "brunch": "^2.10.12"
+    "babel-brunch": "https://github.com/babel/babel-brunch.git",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "brunch": "^2.10.12",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-import-resolver-node": "^0.3.2",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0"
   },
   "scripts": {
     "build": "brunch build",
