@@ -9,5 +9,10 @@ exports.config = {
     javascripts: {
       joinTo: 'js/app.js'
     }
+  },
+  plugins: {
+    postcss: {
+      processors: [require('autoprefixer')],
+    }
   }
 };
