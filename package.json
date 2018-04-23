@@ -1,0 +1,14 @@
+{
+  "name": "modele-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Philippe Candille <philippe@oclock.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "brunch": "^2.10.12"
+  },
+  "scripts": {
+    "build": "brunch build",
+    "start": "brunch watch --server"
+  }
+}
