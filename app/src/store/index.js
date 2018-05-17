@@ -1,17 +1,29 @@
 /**
  * NPM import
  */
-import { createStore } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 
 /**
  * Local import
  */
 import reducer from './reducer';
+import TrackUsage from './middlewares/TrackUsage';
 
 /**
  * Code
  */
-const store = createStore(reducer);
+
+// DevTools
+const devTools = [];
+if (window.devToolsExtension) {
+  devTools.push(window.devToolsExtension());
+}
+
+// Middleware vers Enhancers
+const exampleEnhancer = applyMiddleware(TrackUsage);
+const enhancers = compose(exampleEnhancer, ...devTools);
+
+const store = createStore(reducer, enhancers);
 
 /**
  * Export
