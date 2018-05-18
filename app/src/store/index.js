@@ -8,6 +8,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
  */
 import reducer from './reducer';
 import TrackUsage from './middlewares/TrackUsage';
+import AutoOff from './middlewares/AutoOff';
 
 /**
  * Code
@@ -22,9 +23,11 @@ if (window.devToolsExtension) {
 
 // Middlewares - optionnels
 const TrackUsageMW = applyMiddleware(TrackUsage);
+const AutoOffMW = applyMiddleware(AutoOff);
 
 // On prépare tous les enhancers pour notre Store.
-const enhancers = compose(TrackUsageMW, ...devTools);
+// Attention : l'ordre a une importance !
+const enhancers = compose(AutoOffMW, TrackUsageMW, ...devTools);
 
 const store = createStore(reducer, enhancers);
 
