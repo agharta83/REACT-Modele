@@ -1,17 +1,32 @@
 /**
  * NPM import
  */
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 
 /**
  * Local import
  */
 import reducer from './reducer';
+import TrackUsage from './middlewares/TrackUsage';
 
 /**
  * Code
  */
-const store = createStore(reducer);
+
+// DevTools - optionnels
+const devTools = [];
+if (window.devToolsExtension) {
+  // On configure l'extension Redux pour Chrome/Firefox.
+  devTools.push(window.devToolsExtension());
+}
+
+// Middlewares - optionnels
+const TrackUsageMW = applyMiddleware(TrackUsage);
+
+// On prépare tous les enhancers pour notre Store.
+const enhancers = compose(TrackUsageMW, ...devTools);
+
+const store = createStore(reducer, enhancers);
 
 /**
  * Export
